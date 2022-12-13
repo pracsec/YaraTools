@@ -127,6 +127,20 @@ PEID         Microsoft_Visual_Cpp_v50v60_MFC              0.071352788 0.24253174
         $stats = New-Object System.Collections.Hashtable([System.StringComparer]::InvariantCultureIgnoreCase);
         foreach($item in $map) {
             if(!$stats.Contains($item.name)) {
+                $item.whitelist = [int]$item.whitelist;
+                $item.blacklist = [int]$item.blacklist;
+                $item.sum = [int]$item.sum;
+                $item.remainder = [int]$item.remainder
+                $item.wpercentage = [float]::Parse($item.wpercentage);
+                $item.bpercentage = [float]::Parse($item.bpercentage);
+                $item.wnorm = [float]::Parse($item.wnorm);
+                $item.bnorm = [float]::Parse($item.bnorm);
+                $item.wrnorm = [float]::Parse($item.wrnorm);
+                $item.wbnorm = [float]::Parse($item.wbnorm);
+                $item.tentropy = [float]::Parse($item.tentropy);
+                $item.centropy = [float]::Parse($item.centropy);
+                $item.gain = [float]::Parse($item.gain);
+
                 $stats.Add($item.name, $item);
             }
         }
